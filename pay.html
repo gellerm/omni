@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximun-scale=1.0, user-scalable=no">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="../lib/bootstrap-3.3.2/dist/css/bootstrap.css">
+<link rel="stylesheet" href="../lib/jquery-ui/jquery-ui-1.11.3/jquery-ui.css">
+<meta charset="ISO-8859-1">
+<title>Chase - Make a payment</title>
+</head>
+<body>
+<audio class="guideAudio" preload="auto">
+   <source src="audio/pay-lite.ogg" />  
+   <source src="audio/pay-lite.mp3" />  
+</audio> 
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-xs-12">
+			<H3 class="text-left"><img src="img/chase-logo.png"> - Let's make a payment</H3>
+		</div>
+	</div>
+</div>
+<TABLE class="table">
+	<tbody>
+		<tr>
+			<td>
+				<div class="dropdown">
+				  <button class="btn btn-default form-control dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+				    <div class="pull-left"<div class="pull-left"><STRONG>Pay to</STRONG></div><div class="pull-right">Freedom Card (...XXXX)<span class="caret"></span></div>
+				  </button>
+				  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1" id="paytomenu">
+				    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Freedom Card (...XXXX)</a></li>
+				    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Sapphire Card (...YYYY)</a></li>
+				    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Slate Card (...ZZZZ)</a></li>
+				  </ul>
+				</div>  
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div class="dropdown">
+				  <button class="btn btn-default form-control dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+				    <div class="pull-left"><STRONG style="color:#00B800">Automatic Payment: ON<span class="caret"></span></STRONG></div>
+				  </button>
+				  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1" id="autopaymenu">
+				    <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><STRONG style="color:#00B800">ON</STRONG></a></li>
+				    <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><STRONG style="color:#00B800">OFF</STRONG></a></li>
+				  </ul>
+				</div>  
+				<div class="pull-left"><span class="text-muted" style="margin-left:20px;cursor:default">Due Date: 03/16/2015</span></div>
+				<div class="pull-right"><span class="text-muted" style="margin-right:10px;cursor:default">Min due: $57.47</span></div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div class="dropdown">
+				  <button class="btn btn-default form-control dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+				    <div class="pull-left"><STRONG>Pay from</STRONG></div><div class="pull-right">CPC CHECKING(...AAAA)<span class="caret"></span></div>
+				  </button>
+				  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1" id="payfrommenu">
+				    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">CPC CHECKING (...AAAA)</a></li>
+				    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">CPC SAVINGS (...BBBB)</a></li>
+				  </ul>
+				</div>  
+			</td>
+		</tr>
+		<tr>
+			<td>
+			    <div class="control-group">
+			        <div class="controls">
+			            <div class="input-group">
+			            <!-- FIX: Overrode Bootstrap styles to get white background and black text, has to be a better way -->
+							<label for="date-picker-2" class="input-group-addon btn" style="background-color:#FFFFFF;color:black"><STRONG>Payment date</STRONG></label>
+				            <input id="date-picker-2" type="text" class="date-picker form-control" readonly="true" style="background-color:#FFFFFF;cursor:default" value="03/02/2015"/>
+			                <label for="date-picker-2" class="input-group-addon btn"><span class="glyphicon glyphicon-calendar"></span>
+			                </label>
+			            </div>
+			        </div>
+		    	</div>
+			</td>
+		</tr>						
+		<tr>
+			<td>
+			  <button class="btn btn-default form-control" type="button" id="payAmountButton" data-toggle="modal" data-target="#myPayAmountModal" aria-expanded="true">
+			    <div class="pull-left">
+			    <STRONG>Amount</STRONG></div>
+			    <div id="payAmountField" class="pull-right">Select amount &gt
+			    </div>
+			  </button>
+			</td>
+		</tr>			
+	</tbody>
+</TABLE>
+<h3>
+<span class="label label-info" style="margin-left:10px">Need help?</span>
+<button type="button" class="btn btn-default btn-md">
+  Click here <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> 
+</button>
+</h3>
+<div class="container-fluid">
+	<div class="row">
+	  <div class="col-xs-8 col-xs-offset-3">
+	 <button type="button" class="btn btn-default btn-lg">Cancel</button>
+	 <button type="button" class="btn btn-primary btn-lg">Next</button>
+	</div>
+</div>
+
+<!-- Guided Help Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">
+			<img src="img/chase-logo.png"> - Let's make a payment        
+        </h4> 
+      </div>
+      <div class="modal-body">
+        Would you like us to guide you?  
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal" id="playGuide">Yes</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">No, I'll do it on my own</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Select Payment Amount Modal -->
+<div class="modal fade" id="myPayAmountModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">
+			Select amount        
+        </h4> 
+      </div>
+      <div class="modal-body">
+		<TABLE class="table">
+			<tbody>
+				<tr>
+					<td>
+						<div class="dropdown">
+						  <button class="btn btn-default form-control dropdown-toggle" type="button" id="statementBalanceModalButton" aria-expanded="true">
+						    <div class="pull-left"><STRONG>Statement balance</STRONG></div><div id="statementBalanceField" class="pull-right">$1,247.23</div>
+						  </button>
+						</div>  
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="dropdown">
+						  <button class="btn btn-default form-control dropdown-toggle" type="button" id="currentBalanceModalButton" aria-expanded="true">
+						    <div class="pull-left"><STRONG>Current balance</STRONG></div><div id="curBalanceField" class="pull-right">$1,874.17</span></div>
+						  </button>
+						</div>  
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="dropdown">
+						  <button class="btn btn-default form-control dropdown-toggle" type="button" id="minPaymentModalButton" aria-expanded="true">
+						    <div class="pull-left"<div class="pull-left"><STRONG>Min payment due</STRONG></div><div id="minBalanceField" class="pull-right">$57.47</span></div>
+						  </button>
+						</div>  
+					</td>
+				</tr>
+	  			<tr>
+					<td>
+					    <div class="control-group">
+					        <div class="controls">
+					            <div class="input-group">
+									<label for="otherAmount" class="input-group-addon btn" style="background-color:#FFFFFF;color:black"><STRONG>Other amount $</STRONG></label>
+						            <input id="otherAmount" type="text" pattern="[0-9]*" class="form-control" style="background-color:#FFFFFF;cursor:default;text-align:right">
+					            </div>
+					        </div>
+				    	</div>
+					</td>
+				</tr> 
+			</tbody>
+			</TABLE>
+      </div>
+      <div class="modal-footer">
+ 		<H3 class="pull-left">
+ 			<span class="label label-info" style="margin-left:10px">Need help?</span>
+			<button type="button" class="btn btn-default btn-sm">
+			  Click here <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> 
+			</button>
+		</H3> 
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-8 col-xs-offset-1">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>	
+		 			<button type="button" class="btn btn-primary" data-dismiss="modal" id="nextAmountButton">Next</button> 			
+		 		</div>
+			</div>
+      	</div> 
+    </div>
+  </div>
+</div>
+
+<script src="../lib/jquery/1.11.2/jquery-1.11.2.js"></script>
+<script src="../lib/jquery-ui/jquery-ui-1.11.3/jquery-ui.js"></script>
+<script src="../lib/bootstrap-3.3.2/dist/js/bootstrap.js"></script>
+<script>
+$("#otherAmount").keyup(function(event){
+    if(event.keyCode == 13){
+        $("#nextAmountButton").click();
+    }
+});
+
+function onPayToMenuClick () {
+	  var selText = $(this).text();
+	  $(this).parents('.dropdown').find('.dropdown-toggle').html('<div class="pull-left"><STRONG>Pay to </STRONG></div><div class="pull-right">' +selText+' <span class="caret"></span>');	
+}
+
+function onPayFromMenuClick () {
+	  var selText = $(this).text();
+	  $(this).parents('.dropdown').find('.dropdown-toggle').html('<div class="pull-left"><STRONG>Pay from </STRONG></div><div class="pull-right">' +selText+' <span class="caret"></span>');	
+}
+
+function onAutoPayMenuClick () {
+	  var selText = $(this).text();
+	  $(this).parents('.dropdown').find('.dropdown-toggle').html('<div class="pull-left"><STRONG style="color:#00B800">Automatic Payment: ' +selText+' <span class="caret"></span></STRONG>');	
+}
+
+function onPlayGuideClick () {
+	ensureMinVolume();
+	$('.guideAudio').trigger('play'); 
+}
+
+function onPayStatementBalanceClick () {
+	var stateBalVal = $('#statementBalanceField').text();
+	$('#payAmountField').text(stateBalVal);
+	$('#myPayAmountModal').modal('hide');
+}
+
+function onPayCurrentBalanceClick () {
+	var stateBalVal = $('#curBalanceField').text();
+	$('#payAmountField').text(stateBalVal);
+	$('#myPayAmountModal').modal('hide');
+}
+
+function onPayMinBalanceClick () {
+	var stateBalVal = $('#minBalanceField').text();
+	$('#payAmountField').text(stateBalVal);
+	$('#myPayAmountModal').modal('hide');
+}
+
+function onNextAmountClick () {
+	var stateBalVal = '$' + $('#otherAmount').val();
+	$('#payAmountField').text(stateBalVal);
+	$('#myPayAmountModal').modal('hide');
+}
+
+function ensureMinVolume(){
+	var bool = $(".guideAudio").prop("muted");
+	if(bool === true) {
+	    $(".guideAudio").prop("muted",false);
+	}
+	
+	var volume = $(".guideAudio").prop("volume");
+    if(volume < .4){
+        volume = .75;
+    }
+    $(".guideAudio").prop("volume",volume);
+}
+
+$('#paytomenu li a').click(onPayToMenuClick); 
+$('#payfrommenu li a').click(onPayFromMenuClick); 
+$("#autopaymenu li a").click(onAutoPayMenuClick);
+$("#statementBalanceModalButton").click(onPayStatementBalanceClick);
+$("#currentBalanceModalButton").click(onPayCurrentBalanceClick); 
+$("#minPaymentModalButton").click(onPayMinBalanceClick);
+$("#nextAmountButton").click(onNextAmountClick);
+$('#playGuide').click(onPlayGuideClick);
+$('#myModal').modal('show');
+$(".date-picker").datepicker();
+</script>
+</body>
+</html>
