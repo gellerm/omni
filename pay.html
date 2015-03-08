@@ -40,10 +40,10 @@
 		<tr>
 			<td>
 				<div class="dropdown">
-				  <button class="btn btn-default form-control dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+				  <button class="btn btn-default form-control dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="true">
 				    <div class="pull-left"><STRONG style="color:#00B800">Automatic Payment: ON<span class="caret"></span></STRONG></div>
 				  </button>
-				  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1" id="autopaymenu">
+				  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu2" id="autopaymenu">
 				    <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><STRONG style="color:#00B800">ON</STRONG></a></li>
 				    <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><STRONG style="color:#00B800">OFF</STRONG></a></li>
 				  </ul>
@@ -55,10 +55,10 @@
 		<tr>
 			<td>
 				<div class="dropdown">
-				  <button class="btn btn-default form-control dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+				  <button class="btn btn-default form-control dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-expanded="true">
 				    <div class="pull-left"><STRONG>Pay from</STRONG></div><div class="pull-right">CPC CHECKING(...AAAA)<span class="caret"></span></div>
 				  </button>
-				  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1" id="payfrommenu">
+				  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu3" id="payfrommenu">
 				    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">CPC CHECKING (...AAAA)</a></li>
 				    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">CPC SAVINGS (...BBBB)</a></li>
 				  </ul>
@@ -132,7 +132,7 @@
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" tabindex=1><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title">Select payment amount</h4>
       </div>
       <div class="modal-body">
@@ -141,7 +141,7 @@
 			<tbody>
 				<tr>
 					<td>
-						<button class="btn btn-default form-control" type="button" aria-expanded="true" id="statementBalanceButton">
+						<button class="btn btn-default form-control" type="button" aria-expanded="true" id="statementBalanceButton" tabindex=2>
 				    		<div class="pull-left">
 				    			<STRONG>Statement balance</STRONG>
 				    		</div>
@@ -153,7 +153,7 @@
 				</tr>
 				<tr>
 					<td>
-						<button class="btn btn-default form-control" type="button" aria-expanded="true" id="currentBalanceButton">
+						<button class="btn btn-default form-control" type="button" aria-expanded="true" id="currentBalanceButton" tabindex=3>
 				    		<div class="pull-left">
 				    			<STRONG>Current balance</STRONG>
 				    		</div>
@@ -165,7 +165,7 @@
 				</tr>
 				<tr>
 					<td>
-						<button class="btn btn-default form-control" type="button" aria-expanded="true" id="minPaymentButton">
+						<button class="btn btn-default form-control" type="button" aria-expanded="true" id="minPaymentButton" tabindex=4>
 				    		<div class="pull-left">
 				    			<STRONG>Min payment due</STRONG>
 				    		</div>
@@ -181,7 +181,7 @@
 					        <div class="controls">
 					            <div class="input-group">
 									<label for="otherAmount" class="input-group-addon" style="background-color:#FFFFFF;color:black"><STRONG>Other amount $</STRONG></label>
-						            <input id="otherAmount" type="number" placeholder="type here" class="form-control" style="background-color:#FFFFFF;cursor:default;text-align:right">
+						            <input id="otherAmount" type="number" placeholder="type here" class="form-control" style="background-color:#FFFFFF;cursor:default;text-align:right" tabindex=5>
 					            </div>
 					        </div>
 				    	</div>
@@ -190,7 +190,7 @@
 				<tr>
 					<td>
 						<div class="pull-right">
-				        	<button type="button" class="btn btn-primary" data-dismiss="modal" id="modalNextButton">Select other amount</button>
+				        	<button type="button" class="btn btn-primary" data-dismiss="modal" id="modalNextButton" tabindex=6>Select other amount</button>
 						</div>
 					</td>
 				</tr>
@@ -198,7 +198,7 @@
 					<td>
 						<h3 class="pull-left">
 				 			<span class="label label-info">Need help?</span>
-							<button type="button" class="btn btn-default btn-sm">
+							<button type="button" class="btn btn-default btn-sm" tabindex=7>
 							  Click here <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> 
 							</button>
 						</h3> 
@@ -207,7 +207,7 @@
 				<tr>
 					<td>
 						<div class="pull-right">
-        					<button type="button" class="btn btn-default" data-dismiss="modal" id="modalCancelButton">Cancel</button>
+        					<button type="button" class="btn btn-default" data-dismiss="modal" id="modalCancelButton" tabindex=8>Cancel</button>
 						</div>
 					</td>
 				</tr>
@@ -226,12 +226,6 @@ $("#otherAmount").keyup(function(event){
     if(event.keyCode == 13){
         $("#modalNextButton").click();
     }
-});
-
-$('#otherAmount').on('keydown', function(e){
-    if(e.which === 9) {
-        $("#modalNextButton").focus();
-   }
 });
 
 function onPayToMenuClick () {
